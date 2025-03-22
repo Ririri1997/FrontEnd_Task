@@ -1,6 +1,21 @@
 <template>
  <div>
-  <h2>Вход</h2>
   <p>Это страница для авторизованных людишек </p>
+  <button @click="logout">Выйти</button>
+
  </div>
 </template>
+
+
+<script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const logout = async () => {
+
+  localStorage.removeItem('user');
+  router.push('/login');
+
+};
+</script>
