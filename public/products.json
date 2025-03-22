@@ -1,0 +1,82 @@
+[
+ {
+   "id": 1,
+   "name": "Product 1",
+   "category": "Electronics",
+   "price": 199.99,
+   "status": "available",
+   "date_created": "2025-03-01"
+ },
+ {
+   "id": 2,
+   "name": "Product 2",
+   "category": "Clothing",
+   "price": 49.99,
+   "status": "sold out",
+   "date_created": "2025-03-02"
+ },
+ {
+   "id": 3,
+   "name": "Product 3",
+   "category": "Accessories",
+   "price": 29.99,
+   "status": "available",
+   "date_created": "2025-03-03"
+ },
+ {
+   "id": 4,
+   "name": "Product 4",
+   "category": "Electronics",
+   "price": 499.99,
+   "status": "available",
+   "date_created": "2025-03-04"
+ },
+ {
+   "id": 5,
+   "name": "Product 5",
+   "category": "Furniture",
+   "price": 299.99,
+   "status": "sold out",
+   "date_created": "2025-03-05"
+ },
+ {
+   "id": 6,
+   "name": "Product 6",
+   "category": "Clothing",
+   "price": 79.99,
+   "status": "available",
+   "date_created": "2025-03-06"
+ },
+ {
+   "id": 7,
+   "name": "Product 7",
+   "category": "Furniture",
+   "price": 159.99,
+   "status": "available",
+   "date_created": "2025-03-07"
+ },
+ {
+   "id": 8,
+   "name": "Product 8",
+   "category": "Accessories",
+   "price": 89.99,
+   "status": "sold out",
+   "date_created": "2025-03-08"
+ },
+ {
+   "id": 9,
+   "name": "Product 9",
+   "category": "Electronics",
+   "price": 199.99,
+   "status": "available",
+   "date_created": "2025-03-09"
+ },
+ {
+   "id": 10,
+   "name": "Product 10",
+   "category": "Clothing",
+   "price": 39.99,
+   "status": "sold out",
+   "date_created": "2025-03-10"
+ }
+]
