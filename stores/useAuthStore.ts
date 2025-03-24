@@ -17,7 +17,8 @@ export const useAuthStore = defineStore("auth", {
   }),
   actions: {
     async login(username: string, password: string) {
-      const { data: users } = await useFetch<User[]>("/users.json");
+     const { data: users } = await useFetch<User[]>("/api/users");
+
 
       if (!username || !password) {
         this.errorMessage = "Введите данные";

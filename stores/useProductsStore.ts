@@ -9,14 +9,15 @@ interface Product {
   date_created: string;
 }
 
+
 export const useProductsStore = defineStore("products", {
   state: () => ({
     products: [] as Product[],
   }),
   actions: {
     async fetchProducts() {
-      try {
-        const { data } = await useFetch<Product[]>("/products.json");
+      try {    
+        const { data } = await useFetch<Product[]>("/api/products");
         if (data.value) this.products = data.value;
       } catch (error) {
         console.error("Ошибка при загрузке продуктов:", error);
