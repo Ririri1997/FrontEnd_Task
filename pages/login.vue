@@ -1,57 +1,50 @@
 <template>
  <div>
   <h2>Вход</h2>
+  <div class="auth">
+
   <input v-model="username" placeholder="Логин" />
   <input v-model="password" type="password" placeholder="Пароль" />
-  <button @click="login">Войти</button>
-  <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+
+  <Button @click="handleLogin">Войти</Button>
+  <p v-if="authStore.errorMessage" class="error">{{ authStore.errorMessage }}</p>
+ </div>
  </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { useAuthStore } from "~/stores/useAuthStore";
 
-interface UserCredentials {
- username: string;
- passphrase: string;
-}
-interface User {
- credentials: UserCredentials;
- active: boolean;
-}
-
-const username = ref<string>('');
-const password = ref<string>('');
-const errorMessage = ref<string>('');
+const authStore = useAuthStore();
 const router = useRouter();
 
-const login = async () => {
- // Загружаем JSON с пользователями. Вообще не безопасное хранение 
- const { data: users } = await useFetch<User[]>('/users.json');
+const username = ref<string>("");
+const password = ref<string>("");
 
- // захотелось добавить чуть-чуть валидации 
- if (!username.value || !password.value) {
-  errorMessage.value = 'Введите данные';
-  return
- }
- // Ищем пользователя
- const user: User | null = users.value?.find((u: User) =>
-  u.credentials.username === username.value &&
-  u.credentials.passphrase === password.value
- ) || null;
-
- if (user && user.active) {
-  localStorage.setItem('user', JSON.stringify(user));
-  router.push('/account');
- } else {
-  errorMessage.value = 'Введены неверные данные авторизации. Попробуйте ещё раз';
- }
+const handleLogin = async () => {
+  const success = await authStore.login(username.value, password.value);
+  if (success) {
+    router.push("/account");
+  }
 };
 </script>
 
-<style scoped>
-.error {
- color: red;
-}
+<style scoped lang="sass">
+.auth 
+ display: flex 
+ flex-direction: column  
+ max-width: 240px
+ input 
+  padding: 8px 24px
+  border-radius: 4px
+  width: 100%
+  max-width: 240px
+  margin-bottom: 12px
+  background-color: #dcebf9 
+  border: none
+.error 
+ color: red
+
 </style>
