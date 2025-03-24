@@ -1,6 +1,28 @@
 # Nuxt Minimal Starter
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+ Деплой проекта на продакшн сервер (Ubuntu + PM2 + Nginx)
+
+Подготовка сервера  
+Обновите систему и установите нужные пакеты:
+
+sudo apt update && sudo apt upgrade -y
+sudo apt install curl git nodejs npm nginx -y
+npm install -g pm2
+
+Клонирование репозитория и установка зависимостей
+git clone https://github.com/your-repo/nuxt-app.git
+cd nuxt-app
+npm install
+
+
+Сборка и запуск в продакшн-режиме
+
+npm run build
+pm2 start npm --name "nuxt-app" -- start
+pm2 save
+pm2 startup
+
+
 
 ## Setup
 
